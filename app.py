@@ -18,7 +18,7 @@ def homePage():
 def index():
     if request.method == "POST":
         try:
-            searchString = request.form['content']
+            searchString = request.form['content'].replace(" ","")
             flipkart_url = "https://www.flipkart.com/search?q=" + searchString
             uClient = uReq(flipkart_url)
             flipkartPage = uClient.read()
